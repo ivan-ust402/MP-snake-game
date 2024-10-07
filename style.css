@@ -127,6 +127,19 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .3s ease;
+}
+
+@media (hover: hover) {
+    .move-control:hover {
+        background: orange;
+    }
+}
+
+@media (hover: none) {
+    .move-control:active {
+        background: orange;
+    }
 }
 
 @media (max-width: 1024px) {
