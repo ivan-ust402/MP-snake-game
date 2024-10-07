@@ -4,6 +4,7 @@ class Game {
     constructor() {
         this.tickIdentifier = null;
         this.messageEl = document.getElementById('message');
+        this.moveControlsEl = document.querySelector('.move-controls')
     }
 
     /**
@@ -25,6 +26,8 @@ class Game {
         this.menu = menu;
         this.food = food;
         this.score = score;
+        console.log(this.moveControlsEl)
+
     }
 
     /**
@@ -35,6 +38,7 @@ class Game {
         this.score.setToWin(this.settings.winLength);
         this.menu.addButtonsClickListeners(this.start.bind(this), this.pause.bind(this));
         document.addEventListener('keydown', this.pressKeyHandler.bind(this));
+        this.moveControlsEl.addEventListener('click', this.clickControlHandler.bind(this))
     }
 
     /**
@@ -102,6 +106,28 @@ class Game {
                 this.snake.changeDirection('left');                       
                 break;
             case "ArrowRight":
+                this.snake.changeDirection('right');
+                break;
+        }
+    }
+
+    /**
+     * В зависимости от клика на экранные кнопки (вверх, вниз влево, вправо)
+     * будет вызываться соответствующий метод.
+     * @param {KeyboardEvent} event
+     */
+    clickControlHandler(event) {
+        switch (event.target.id) {
+            case "up":
+                this.snake.changeDirection('up');
+                break;
+            case "down":
+                this.snake.changeDirection('down');
+                break;
+            case "left":
+                this.snake.changeDirection('left');                       
+                break;
+            case "right":
                 this.snake.changeDirection('right');
                 break;
         }
