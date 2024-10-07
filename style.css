@@ -15,7 +15,7 @@ body {
     box-sizing: border-box;
 }
 
-button {
+.game-control {
     width: 110px;
     padding: 15px;
     margin: 10px;
@@ -27,13 +27,13 @@ button {
 }
 
 @media (hover: hover) {
-    button:hover {
+    .game-control:hover {
         background: #009641;
     }
 }
 
 @media (hover: none) {
-    button:active {
+    .game-control:active {
         background: #9cfb02;
         color: black;
     }
