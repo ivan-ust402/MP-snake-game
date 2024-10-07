@@ -6,12 +6,17 @@ body {
     background: #2e353d;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
     align-items: center;
+    padding-left: calc(50% - 480px);
+    padding-right: calc(50% - 480px);;
+    box-sizing: border-box;
 }
 
 button {
-    width: 150px;
+    width: 110px;
     padding: 15px;
     margin: 10px;
     color: white;
@@ -21,24 +26,34 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background: #009641;
+@media (hover: hover) {
+    button:hover {
+        background: #009641;
+    }
 }
 
-button:active {
-    background: #9cfb02;
-    color: black;
+@media (hover: none) {
+    button:active {
+        background: #9cfb02;
+        color: black;
+    }
 }
+
 
 #game {
     border-collapse: collapse;
     margin: 30px 0;
-    min-height: 484px;
+    min-height: 250px;
+    height: 60%;
+    width: 60%;
+    min-width: 250px;
 }
 
 td {
-    width: 20px;
-    height: 20px;
+    max-width: 20px;
+    min-width: 10px;
+    max-height: 20px;
+    min-height: 10px;
     border: 1px solid #eee;
 }
 
@@ -75,8 +90,11 @@ td {
 
 .controls {
     display: flex;
-    gap: 10px;
+    gap: 3px;
     align-items: center;
+    width: 80%;
+    min-width: 250px;
+    justify-content: center;
 }
 .game-controls {
     display: flex;
@@ -112,6 +130,9 @@ td {
 }
 
 @media (max-width: 1024px) {
+    .controls {
+        justify-content: space-between;
+    }
     .move-controls {
         display: flex;
     }
